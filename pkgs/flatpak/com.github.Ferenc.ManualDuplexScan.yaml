@@ -1,0 +1,63 @@
+id: com.github.Ferenc.ManualDuplexScan
+runtime: org.gnome.Platform
+
+# Please also update 'update-python-modules.sh' when changing runtime-version
+runtime-version: '44'
+
+sdk: org.gnome.Sdk
+command: pdfmerger.py
+
+finish-args:
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  - --filesystem=host
+  - --device=dri
+  - --filesystem=xdg-run/gvfsd
+  - --talk-name=org.gtk.vfs.*
+  - --own-name=com.github.Ferenc.ManualDuplexScan
+  # TODO: Remove this ASAP:
+  - --socket=session-bus
+
+modules:
+  - name: pikepdf-src
+    buildsystem: simple
+    build-commands:
+      - pip3 install --no-index --prefix=${FLATPAK_DEST} --no-build-isolation .
+    sources:
+      - url: https://files.pythonhosted.org/packages/8d/0a/a964edab0bdb29ceae4ef4309f4448f52e71e8228748760d5edc9c3c0d7e/pikepdf-7.2.0.tar.gz
+        sha256: ad82b836faed0376c725e19d0f8a7c7bef389e8c46683c11bbfc70410bc2e3ee
+        type: archive
+        x-checker-data:
+          type: pypi
+          name: pikepdf
+
+    modules:
+      - python3-lxml.yaml
+      - python3-pikepdf-deps.yaml
+      - name: qpdf
+        buildsystem: cmake-ninja
+        builddir: true
+        sources:
+          - url: https://github.com/qpdf/qpdf/releases/download/v11.4.0/qpdf-11.4.0.tar.gz
+            sha256: b0180971cc1b79b2dfe02ffe28e2c88c47f735888a3a2543dd42b9054ef146e1
+            type: archive
+            x-checker-data:
+              type: anitya
+              project-id: 5542
+              stable-only: true
+              url-template: https://github.com/qpdf/qpdf/releases/download/v$version/qpdf-$version.tar.gz
+
+  - name: manualduplexscan
+    buildsystem: simple
+    build-commands:
+      - install -D pdfmerger.py /app/bin/pdfmerger.py
+    sources:
+      - type: file
+        path: ../../src/pdfmerger.py
+
+cleanup:
+  # TODO: Cleanup some more
+  - /include
+  - /lib/pkgconfig
+  - /app/bin/opj_*
