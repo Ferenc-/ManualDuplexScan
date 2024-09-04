@@ -2,7 +2,7 @@ id: com.github.Ferenc.ManualDuplexScan
 runtime: org.gnome.Platform
 
 # Please also update 'update-python-modules.sh' when changing runtime-version
-runtime-version: '44'
+runtime-version: '46'
 
 sdk: org.gnome.Sdk
 command: pdfmerger.py
