@@ -9,7 +9,6 @@ command: pdfmerger.py
 
 finish-args:
   - --socket=wayland
-  - --socket=fallback-x11
   - --share=ipc
   - --filesystem=host
   - --device=dri
