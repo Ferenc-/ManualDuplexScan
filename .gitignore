@@ -161,3 +161,4 @@ cython_debug/
 
 # Flatpak
 .flatpak-builder/
+x86_64-repo/
