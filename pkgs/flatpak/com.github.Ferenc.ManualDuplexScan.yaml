@@ -24,8 +24,8 @@ modules:
     build-commands:
       - pip3 install --no-index --prefix=${FLATPAK_DEST} --no-build-isolation .
     sources:
-      - url: https://files.pythonhosted.org/packages/8d/0a/a964edab0bdb29ceae4ef4309f4448f52e71e8228748760d5edc9c3c0d7e/pikepdf-7.2.0.tar.gz
-        sha256: ad82b836faed0376c725e19d0f8a7c7bef389e8c46683c11bbfc70410bc2e3ee
+      - url: https://files.pythonhosted.org/packages/9d/eb/4756ba366b5b243a1b5711e02993ea932d45d7e2d750bf01eb0029dc443e/pikepdf-9.7.0.tar.gz
+        sha256: ab54895a246768a2660cafe48052dbf5425c76f6f04e0f53b911df6cfd7e1c95
         type: archive
         x-checker-data:
           type: pypi
@@ -38,8 +38,8 @@ modules:
         buildsystem: cmake-ninja
         builddir: true
         sources:
-          - url: https://github.com/qpdf/qpdf/releases/download/v11.9.1/qpdf-11.9.1.tar.gz
-            sha256: 2ba4d248f9567a27c146b9772ef5dc93bd9622317978455ffe91b259340d13d1
+          - url: https://github.com/qpdf/qpdf/releases/download/v12.1.0/qpdf-12.1.0.tar.gz
+            sha256: 991edd3f6158d86a8779481a02bd7d90d0ff1d52bea46abe8186295ae0bf09fa
             type: archive
             x-checker-data:
               type: anitya

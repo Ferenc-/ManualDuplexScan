@@ -1,4 +1,4 @@
-# Generated with flatpak-pip-generator --runtime org.gnome.Sdk//48 --yaml --checker-data pillow pybind11 setuptools-scm deprecation --output ~/github.com/Ferenc-/ManualDuplexScan/pkgs/flatpak/python3-pikepdf-deps
+# Generated with flatpak-pip-generator --runtime org.gnome.Sdk//48 --yaml --checker-data pillow pybind11 setuptools-scm deprecated wrapt --output /home/ferenc/github.com/Ferenc-/ManualDuplexScan/pkgs/flatpak/python3-pikepdf-deps
 build-commands: []
 buildsystem: simple
 modules:
@@ -33,8 +33,7 @@ modules:
       - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "setuptools-scm" --no-build-isolation
     sources:
-      - &id001
-        type: file
+      - type: file
         url: https://files.pythonhosted.org/packages/88/ef/eb23f262cca3c0c4eb7ab1933c3b1f03d021f2c48f54763065b6f0e321be/packaging-24.2-py3-none-any.whl
         sha256: 09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759
         x-checker-data:
@@ -48,18 +47,31 @@ modules:
           name: setuptools_scm
           packagetype: bdist_wheel
           type: pypi
-  - name: python3-deprecation
+  - name: python3-deprecated
     buildsystem: simple
     build-commands:
       - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} "deprecation" --no-build-isolation
+        --prefix=${FLATPAK_DEST} "deprecated" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/02/c3/253a89ee03fc9b9682f1541728eb66db7db22148cd94f89ab22528cd1e1b/deprecation-2.1.0-py2.py3-none-any.whl
-        sha256: a10811591210e1fb0e768a8c25517cabeabcba6f0bf96564f8ff45189f90b14a
+        url: https://files.pythonhosted.org/packages/6e/c6/ac0b6c1e2d138f1002bcf799d330bd6d85084fece321e662a14223794041/Deprecated-1.2.18-py2.py3-none-any.whl
+        sha256: bd5011788200372a32418f888e326a09ff80d0214bd961147cfed01b5c018eec
         x-checker-data:
-          name: deprecation
+          name: deprecated
           packagetype: bdist_wheel
           type: pypi
+      - &id001
+        type: file
+        url: https://files.pythonhosted.org/packages/c3/fc/e91cc220803d7bc4db93fb02facd8461c37364151b8494762cc88b0fbcef/wrapt-1.17.2.tar.gz
+        sha256: 41388e9d4d1522446fe79d3213196bd9e3b301a336965b9e27ca2788ebd122f3
+        x-checker-data:
+          name: wrapt
+          type: pypi
+  - name: python3-wrapt
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "wrapt" --no-build-isolation
+    sources:
       - *id001
 name: python3-pikepdf-deps
