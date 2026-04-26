@@ -1,4 +1,4 @@
-id: com.github.Ferenc.ManualDuplexScan
+id: io.github.Ferenc.ManualDuplexScan
 runtime: org.gnome.Platform
 runtime-version: "50"
 
@@ -12,7 +12,7 @@ finish-args:
   - --device=dri
   - --filesystem=xdg-run/gvfsd
   - --talk-name=org.gtk.vfs.*
-  - --own-name=com.github.Ferenc.ManualDuplexScan
+  - --own-name=io.github.Ferenc.ManualDuplexScan
   # TODO: Remove this ASAP:
   - --socket=session-bus
 
